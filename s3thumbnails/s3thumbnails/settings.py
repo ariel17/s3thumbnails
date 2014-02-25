@@ -119,3 +119,18 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+# http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
+AWS_ACCESS_KEY_ID = get_env_setting('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = get_env_setting('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = get_env_setting('AWS_STORAGE_BUCKET_NAME')
+AWS_HEADERS = {
+    "Expires": "Expires: Thu, 15 Apr 2014 20:00:00 GMT",
+}
+AWS_QUERYSTRING_AUTH = False
+
+DEFAULT_FILE_STORAGE = 's3thumbnails.backends.MediaFilesStorage'
+MEDIA_URL = "//d117qmnrd86s1a.cloudfront.net/"
+
+
+##################### END CUSTOM SETTINGS
