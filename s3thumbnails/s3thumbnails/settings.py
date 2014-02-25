@@ -85,6 +85,7 @@ STATIC_URL = '/static/'
 # Custom settings
 
 INSTALLED_APPS += (
+    'sorl.thumbnail',
     'images',
 )
 
