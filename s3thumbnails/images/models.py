@@ -10,6 +10,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 from django.conf import settings
 from django.db import models
 
+from sorl.thumbnail import get_thumbnail
 
 class Image(models.Model):
     """
@@ -22,4 +23,4 @@ class Image(models.Model):
         Creates a thumbnail from the current image, just to put the thumbnail
         framework to work.
         """
-        return None
+        return get_thumbnail(self.image, '100x100', crop='center', quality=99)
