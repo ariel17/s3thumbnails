@@ -82,15 +82,30 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Custom settings
+##################### CUSTOM SETTINGS
+
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from os import environ
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_setting(setting):
+    """
+    Get the environment setting or return exception.
+    """
+    try:
+        return environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)
+
 
 INSTALLED_APPS += (
+    'storages',
     'sorl.thumbnail',
     'images',
 )
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'http://localhost:8000/media/'
 
 IMAGES_UPLOAD_TO = 'images/'
 
