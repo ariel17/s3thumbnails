@@ -9,3 +9,7 @@ db.*
 
 # Compile artifacts
 *.pyc
+
+# Media/static files
+media
+static
