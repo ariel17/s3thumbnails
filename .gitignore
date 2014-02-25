@@ -1,0 +1,10 @@
+# Ignore rules for project
+
+# SQLite databases
+*.db
+
+# IDE meta
+.*.sw[op]
+
+# Compile artifacts
+*.pyc
