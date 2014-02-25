@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Images list</h1>
+    {% for image in images %}
+      {% if image.image %}
+        <h2>ID: {{ image.id }}</h2>
+        <ul>
+          <li>Normal: <a href="{{ image.image.url }}">{{ image.image.url }}</a></li>
+          <li>Thumbnail: <a href="{{ image.thumbnail.url }}">{{ image.image.url }}</a></li>
+        </ul>
+      {% endif %}
+    {% endfor %}
+  </body>
+</html>
