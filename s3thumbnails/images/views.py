@@ -9,6 +9,7 @@ __author__ = "Ariel Gerardo Rios (ariel.gerardo.rios@gmail.com)"
 
 
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 from images.models import Image
 
@@ -19,4 +20,4 @@ def list(request):
     """
     return render_to_response('images_list.html', {
         'images': Image.objects.all(),
-    })
+    }, context_instance=RequestContext(request))
