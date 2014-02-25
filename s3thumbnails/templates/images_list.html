@@ -1,9 +1,19 @@
 <html>
   <body>
     <h1>Images list</h1>
+
+    <h2>Context settings</h2>
+
+    <ul>
+      <li>MEDIA_URL={{ MEDIA_URL }}</li>
+      <li>STATIC_URL={{ STATIC_URL }}</li>
+    </ul>
+
+    <hr />
+
     {% for image in images %}
       {% if image.image %}
-        <h2>ID: {{ image.id }}</h2>
+        <h3>ID: {{ image.id }}</h3>
         <ul>
           <li>Normal: <a href="{{ image.image.url }}">{{ image.image.url }}</a></li>
           <li>Thumbnail: <a href="{{ image.thumbnail.url }}">{{ image.thumbnail.url }}</a></li>
