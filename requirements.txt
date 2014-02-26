@@ -1,7 +1,10 @@
 Django==1.6.2
+Pillow==2.3.0
 argparse==1.2.1
 boto==2.25.0
 distribute==0.6.24
 django-boto==0.3.0
+django-storages==1.1.8
+python-memcached==1.53
 sorl-thumbnail==11.12
 wsgiref==0.1.2
