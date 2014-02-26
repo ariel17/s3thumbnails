@@ -6,7 +6,7 @@ A proof of concept Django_ project. It contains only one application with one mo
 How to install it
 -----------------
 
-Assuming you already have installed Python_, Virtualenv_, pip_, git_ and Memcache_:
+Assuming you already have installed Python_, Virtualenv_, pip_, git_ and Memcache_::
 
     ~$ git clone git@github.com:ariel17/s3thumbnails.git
     ~$ cd s3thumbnails
