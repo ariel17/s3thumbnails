@@ -87,6 +87,7 @@ STATIC_URL = '/static/'
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
 from os import environ
+from datetime import datetime, timedelta
 from django.core.exceptions import ImproperlyConfigured
 
 
@@ -124,13 +125,13 @@ CACHES = {
 AWS_ACCESS_KEY_ID = get_env_setting('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_setting('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = get_env_setting('AWS_STORAGE_BUCKET_NAME')
+
+now = datetime.now() + timedelta(days=10)
 AWS_HEADERS = {
-    "Expires": "Expires: Thu, 15 Apr 2014 20:00:00 GMT",
+    'Expires': 'Expires: %s' % now.strftime('%a, %d %b %Y %H:%M:%S GMT'),
 }
 AWS_QUERYSTRING_AUTH = False
 
 DEFAULT_FILE_STORAGE = 's3thumbnails.backends.MediaFilesStorage'
-MEDIA_URL = "//d117qmnrd86s1a.cloudfront.net/"
-
-
+MEDIA_URL = '//%s.cloudfront.net/' % get_env_setting('CLOUDFRONT_ID')
 ##################### END CUSTOM SETTINGS
